@@ -18,7 +18,7 @@ import (
 )
 
 func init() {
-	logentries.Init(LOGENTRIES_TOKEN)
+	logentries.Init("LOGENTRIES_TOKEN")
 }
 
 func main() {
