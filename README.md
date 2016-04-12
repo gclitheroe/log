@@ -5,6 +5,7 @@
 Go (golang) client library for logging to https://logentries.com/ via TLS.  Compatible with http://golang.org/pkg/log/#Logger
 
 * Uses a buffered chan to avoid blocking the application.  Will write to std err if the chan is full.
+* To block on write to Logentries set the env var LOGENTRIES_BLOCKING=true
 
 Example usage:
 
