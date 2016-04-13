@@ -82,6 +82,10 @@ type Writer struct {
 type Blocker struct {
 }
 
+// Optionally set the log prefix at compilation e.g.,
+// go build ... -ldflags "-X github.com/GeoNet/log/logentries.Prefix=string"
+var Prefix string
+
 var s sender
 
 var le chan string
@@ -90,6 +94,10 @@ var std = os.Stderr
 var once sync.Once
 
 func init() {
+	if Prefix != "" {
+		log.SetPrefix(Prefix + " ")
+	}
+
 	token := os.Getenv("LOGENTRIES_TOKEN")
 
 	if token != "" {
