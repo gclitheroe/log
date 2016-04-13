@@ -39,3 +39,11 @@ func main() {
 	}
 }
 ```
+
+## Log Prefix
+
+The log prefix can be set during compilation.  For example to set the prefix for an application named `log-test` to the application name with the short SHA-1 of the HEAD revision use:
+
+```
+go build -ldflags "-X github.com/GeoNet/log/logentries.Prefix=log-test-`git rev-parse --short HEAD`"
+```
